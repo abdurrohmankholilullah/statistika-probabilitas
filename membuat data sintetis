@@ -1,0 +1,30 @@
+
+import pandas as pd
+import numpy as np
+
+# Membuat data sintetis
+np.random.seed(42)
+jumlah_data = 100
+
+df_synthetic = pd.DataFrame({
+    "customer_id": range(1, jumlah_data + 1),
+    "customer_age": np.random.randint(18, 61, jumlah_data),
+    "gender": np.random.choice(
+        ["Laki-laki", "Perempuan"], jumlah_data
+    ),
+    "purchase_amount": np.random.randint(
+        50000, 1000001, jumlah_data
+    ),
+    "customer_satisfaction": np.random.randint(
+        1, 6, jumlah_data
+    )
+})
+
+# Menampilkan datasheet
+print("Dimensi dataset:", df_synthetic.shape)
+display(df_synthetic.head(10))
+
+# Menyimpan ke CSV
+df_synthetic.to_csv("synthetic_customer_data.csv", index=False)
+
+print("Datasheet berhasil disimpan!")
