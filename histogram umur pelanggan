@@ -1,0 +1,29 @@
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Set visual style
+sns.set_theme(style="whitegrid")
+plt.figure(figsize=(8, 5))
+
+# Histogram umur pelanggan
+sns.histplot(
+    data=df_synthetic,
+    x="customer_age",
+    kde=True,
+    color="#0284C7",
+    bins=15
+)
+
+# Judul dan label
+plt.title(
+    "Distribusi Umur Pelanggan (Data Sintetis)",
+    fontweight="bold",
+    fontsize=14
+)
+plt.xlabel("Umur Pelanggan", fontsize=12)
+plt.ylabel("Frekuensi", fontsize=12)
+
+plt.tight_layout()
+plt.savefig("distribusi_umur_pelanggan.png", dpi=300)
+plt.show()
