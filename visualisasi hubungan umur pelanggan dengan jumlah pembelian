@@ -1,0 +1,30 @@
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Set visual style
+sns.set_theme(style="whitegrid")
+plt.figure(figsize=(8, 5))
+
+# Scatter plot umur dan jumlah pembelian
+sns.scatterplot(
+    data=df_synthetic,
+    x="customer_age",
+    y="purchase_amount",
+    hue="gender",
+    palette="Set1",
+    s=70
+)
+
+# Judul dan label
+plt.title(
+    "Hubungan Umur dan Jumlah Pembelian Pelanggan",
+    fontweight="bold",
+    fontsize=14
+)
+plt.xlabel("Umur Pelanggan", fontsize=12)
+plt.ylabel("Jumlah Pembelian (Rp)", fontsize=12)
+
+plt.tight_layout()
+plt.savefig("hubungan_umur_pembelian.png", dpi=300)
+plt.show()
